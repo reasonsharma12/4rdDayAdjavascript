@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="H2">4th day JS assignment</h1>
+    <img  id="imgid" src="" alt="">
+<h2 id="id1">welcome</h2>
+<p id="p1">Hello WLiT.</p>
+
+</body>
+<script>
+const demo_URL= "https://course-api.com/react-store-products"
+
+function processData(data)
+{
+    console.log(data[0].name)
+    console.log(data[0].image)
+    console.log(data[0].id)
+    console.log(data[0].price)
+
+const h1Element = document.getElementById("H2");
+h1Element.innerHTML=data[0].name;
+
+const image1=document.getElementById("imgid");
+image1.src=data[0].image;
+
+const id1 = document.getElementById("id1");
+id1.innerHTML=data[0].id;
+
+const price1=document.getElementById("p1");
+p1.innerHTML=data[0].price;
+
+}
+
+
+const fetchData = async function(){  
+    try{
+const response = await fetch(demo_URL);
+const data = await response.json();
+processData(data);
+console.log(data);
+    }catch(error){
+        console.log("Error",error);
+    }
+};
+
+fetchData();
+</script>
+
+</html>
